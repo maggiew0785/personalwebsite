@@ -9,25 +9,25 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white font-serif">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-20">
         {/* Header */}
-        <header className="mb-12 sm:mb-16 lg:mb-20">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-8 mb-8 sm:mb-12">
-            <div className="flex-shrink-0 mb-6 sm:mb-0 flex justify-center sm:justify-start">
+        <header className="mb-8 sm:mb-12 lg:mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-8 mb-6 sm:mb-8">
+            <div className="flex-shrink-0 mb-4 sm:mb-0 flex justify-center sm:justify-start">
               <Image
                 src="/MaggieWang_Headshot.jpg"
                 alt="Maggie Wang"
-                width={120}
-                height={120}
-                className="rounded-full object-cover sm:w-[150px] sm:h-[150px]"
+                width={100}
+                height={100}
+                className="rounded-full object-cover sm:w-[120px] sm:h-[120px] lg:w-[150px] lg:h-[150px]"
                 priority
               />
             </div>
             <div className="flex-1 text-center sm:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-4 sm:mb-6 tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-light text-gray-900 mb-3 sm:mb-4 lg:mb-6 tracking-tight">
                 Maggie Wang
               </h1>
-              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed font-light max-w-3xl mb-4 sm:mb-6">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed font-light max-w-3xl mb-3 sm:mb-4 lg:mb-6">
                 Senior at Princeton University studying Computer Science, graduating May 2026
               </p>
               
