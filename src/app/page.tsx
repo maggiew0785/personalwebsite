@@ -291,10 +291,11 @@ function ProductSection() {
       title: "History By People",
       company: "OpenAI x Education Hackathon",
       position: "Winner",
-      duration: "2024",
+      duration: "August 2025",
       location: "San Francisco, CA",
       description: "Won OpenAI x Education Hackathon with an AI platform that teaches history through multiple human perspectives. Students explore events through the eyes of different individuals who lived through those moments. Built using Sora, Runway API, OpenAI API, and voice models to create immersive, multimodal storytelling experiences.",
-      type: "Hackathon Winner"
+      type: "Hackathon Winner",
+      link: "https://github.com/maggiew0785/HistoryByPeople"
     },
     {
       title: "TRU - Personal Biography Generator",
@@ -302,8 +303,9 @@ function ProductSection() {
       position: "Ideator, Designer & Frontend Developer",
       duration: "Fall 2024",
       location: "HackMIT",
-      description: "Created TRU with a 4-person team, an AI platform that transforms heartfelt family conversations into biographical narratives. Originated the concept of preserving grandparents' stories and wisdom before they're lost to time. Designed user experience in Figma and built frontend using React, JavaScript, and Material UI. Integrated OpenAI Whisper and GPT APIs to capture and craft these precious memories into lasting legacies.",
-      type: "Hackathon Project"
+      description: "Created TRU (To Remember U) with a 4-person team, an AI platform that transforms heartfelt family conversations into biographical narratives. Originated the concept of preserving grandparents' stories and wisdom before they're lost to time. Designed user experience in Figma and built frontend using React, JavaScript, and Material UI. Integrated OpenAI Whisper and GPT APIs to capture and craft these precious memories into lasting legacies.",
+      type: "Hackathon Project",
+      link: "https://github.com/maggiew0785/HackHarvard-Tru"
     }
   ];
 
@@ -315,7 +317,19 @@ function ProductSection() {
         {projects.map((project, index) => (
           <div key={index} className="pb-6 sm:pb-8 border-b border-gray-200 last:border-b-0">
             <div className="mb-4 sm:mb-6">
-              <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-2">{project.title}</h3>
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2">
+                <h3 className="text-lg sm:text-xl font-medium text-gray-900">{project.title}</h3>
+                {project.link && (
+                  <a 
+                    href={project.link} 
+                    className="text-gray-600 hover:text-black transition-colors self-start sm:ml-4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                )}
+              </div>
               <div className="text-gray-700 font-light">
                 <p className="font-medium text-sm sm:text-base">{project.company}</p>
                 <p className="text-xs sm:text-sm">{project.position} • {project.duration}</p>
