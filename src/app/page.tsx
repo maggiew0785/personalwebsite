@@ -138,8 +138,7 @@ function AboutSection() {
         <div className="space-y-2 sm:space-y-3 font-light">
           <p className="text-gray-700 text-sm sm:text-base">Princeton Research Day Award ($1,500, top 4 across all levels)</p>
           <p className="text-gray-700 text-sm sm:text-base">First-author publications at FAccT, CHI, and under review at NeurIPS</p>
-          <p className="text-gray-700 text-sm sm:text-base">NCWIT Washington Award Winner</p>
-          <p className="text-gray-700 text-sm sm:text-base">USACO Silver, ICPC NY Regional Qualifier, AIME Qualifier</p>
+          <p className="text-gray-700 text-sm sm:text-base">NCWIT Washington Award Winner, USACO Silver, ICPC NY Regional Qualifier, AIME Qualifier</p>
         </div>
       </div>
 
@@ -173,6 +172,11 @@ function AboutSection() {
           <div>
             <p className="text-gray-900 font-medium">Princeton AI Alignment</p>
             <p className="text-gray-700">Leadership role</p>
+          </div>
+          
+          <div>
+            <p className="text-gray-900 font-medium">COS 126 Data Structures & Algorithms Teaching Assistant</p>
+            <p className="text-gray-700">Lab TA & Precept Assistant for two semesters</p>
           </div>
         </div>
       </div>
