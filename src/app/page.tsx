@@ -290,11 +290,20 @@ function ProductSection() {
     {
       title: "History By People",
       company: "OpenAI x Education Hackathon",
-      position: "Team Lead",
+      position: "Winner",
       duration: "2024",
       location: "San Francisco, CA",
       description: "Won OpenAI x Education Hackathon with an AI platform that teaches history through multiple human perspectives. Students explore events through the eyes of different individuals who lived through those moments. Built using Sora, Runway API, OpenAI API, and voice models to create immersive, multimodal storytelling experiences.",
       type: "Hackathon Winner"
+    },
+    {
+      title: "TRU - Personal Biography Generator",
+      company: "HackMIT",
+      position: "Ideator, Designer & Frontend Developer",
+      duration: "Fall 2024",
+      location: "HackMIT",
+      description: "Conceived and developed TRU (To Remember U) with a 4-person team, an AI-powered platform that transforms conversational interviews into beautifully crafted biographical narratives. Led initial ideation and designed user experience for capturing family stories through guided conversations and generating polished biographies for future generations. Built frontend interface using React and TypeScript to create an intuitive storytelling experience that preserves family memories and oral histories before they're lost to time.",
+      type: "Hackathon Project"
     }
   ];
 
