@@ -9,29 +9,29 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white font-serif">
-      <div className="max-w-4xl mx-auto px-8 py-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
         {/* Header */}
-        <header className="mb-20">
-          <div className="flex items-start space-x-8 mb-12">
-            <div className="flex-shrink-0">
+        <header className="mb-12 sm:mb-16 lg:mb-20">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-8 mb-8 sm:mb-12">
+            <div className="flex-shrink-0 mb-6 sm:mb-0 flex justify-center sm:justify-start">
               <Image
                 src="/MaggieWang_Headshot.jpg"
                 alt="Maggie Wang"
-                width={150}
-                height={150}
-                className="rounded-full object-cover"
+                width={120}
+                height={120}
+                className="rounded-full object-cover sm:w-[150px] sm:h-[150px]"
                 priority
               />
             </div>
-            <div className="flex-1">
-              <h1 className="text-6xl font-light text-gray-900 mb-6 tracking-tight">
+            <div className="flex-1 text-center sm:text-left">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-4 sm:mb-6 tracking-tight">
                 Maggie Wang
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed font-light max-w-3xl mb-6">
+              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed font-light max-w-3xl mb-4 sm:mb-6">
                 Senior at Princeton University studying Computer Science, graduating May 2026
               </p>
               
-              <div className="flex space-x-8 text-sm">
+              <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-2 sm:space-y-0 text-sm items-center sm:items-start">
                 <a 
                   href="https://scholar.google.com/citations?hl=en&user=bjy8p8oAAAAJ" 
                   className="text-gray-700 hover:text-black transition-colors underline decoration-gray-300 hover:decoration-black"
@@ -62,11 +62,11 @@ export default function Home() {
         </header>
 
         {/* Navigation */}
-        <nav className="mb-20">
-          <div className="flex space-x-12 text-lg font-light border-b border-gray-200">
+        <nav className="mb-12 sm:mb-16 lg:mb-20">
+          <div className="flex flex-wrap space-x-6 sm:space-x-12 text-base sm:text-lg font-light border-b border-gray-200 overflow-x-auto">
             <button 
               onClick={() => setActiveTab('about')}
-              className={`pb-4 transition-colors ${
+              className={`pb-3 sm:pb-4 transition-colors whitespace-nowrap ${
                 activeTab === 'about' 
                   ? 'text-gray-900 border-b-2 border-gray-900' 
                   : 'text-gray-600 hover:text-gray-900'
@@ -76,7 +76,7 @@ export default function Home() {
             </button>
             <button 
               onClick={() => setActiveTab('research')}
-              className={`pb-4 transition-colors ${
+              className={`pb-3 sm:pb-4 transition-colors whitespace-nowrap ${
                 activeTab === 'research' 
                   ? 'text-gray-900 border-b-2 border-gray-900' 
                   : 'text-gray-600 hover:text-gray-900'
@@ -86,7 +86,7 @@ export default function Home() {
             </button>
             <button 
               onClick={() => setActiveTab('product')}
-              className={`pb-4 transition-colors ${
+              className={`pb-3 sm:pb-4 transition-colors whitespace-nowrap ${
                 activeTab === 'product' 
                   ? 'text-gray-900 border-b-2 border-gray-900' 
                   : 'text-gray-600 hover:text-gray-900'
@@ -111,10 +111,10 @@ export default function Home() {
 function AboutSection() {
   return (
     <div>
-      <h2 className="text-3xl font-light text-gray-900 mb-12 tracking-tight">About</h2>
+      <h2 className="text-2xl sm:text-3xl font-light text-gray-900 mb-8 sm:mb-12 tracking-tight">About</h2>
      
-      <div className="mb-16">
-        <p className="text-lg text-gray-700 leading-relaxed font-light">
+      <div className="mb-12 sm:mb-16">
+        <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
           I&apos;m a senior at Princeton University studying Computer Science, graduating in May 2026. My research has explored AI across multiple domains - from fair training frameworks in NLP to human-computer interaction tools - with a consistent focus on systems that enhance human capabilities. I&apos;m increasingly interested in model behavior, particularly how AI can support learning and critical thinking rather than simply optimizing for human preference alignment. 
           <br />
           <br />
@@ -123,30 +123,30 @@ function AboutSection() {
       </div>
 
       {/* Academic Background */}
-      <div className="mb-12">
-        <h3 className="text-xl font-medium text-gray-900 mb-6">Academic Background</h3>
-        <div className="pl-6 border-l border-gray-300">
-          <p className="text-gray-900 font-medium mb-2">Computer Science, Princeton University <span className="text-gray-600 font-light">(3.93 GPA)</span></p>
-          <p className="text-gray-600 font-light">Tau Beta Pi Engineering Honor Society</p>
-          <p className="text-gray-600 font-light">Expected May 2026</p>
+      <div className="mb-8 sm:mb-12">
+        <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-4 sm:mb-6">Academic Background</h3>
+        <div className="pl-4 sm:pl-6 border-l border-gray-300">
+          <p className="text-gray-900 font-medium mb-2 text-sm sm:text-base">Computer Science, Princeton University <span className="text-gray-600 font-light">(3.93 GPA)</span></p>
+          <p className="text-gray-600 font-light text-sm sm:text-base">Tau Beta Pi Engineering Honor Society</p>
+          <p className="text-gray-600 font-light text-sm sm:text-base">Expected May 2026</p>
         </div>
       </div>
 
       {/* Recognition */}
-      <div className="mb-12">
-        <h3 className="text-xl font-medium text-gray-900 mb-6">Recognition</h3>
-        <div className="space-y-3 font-light">
-          <p className="text-gray-700">Princeton Research Day Award ($1,500, top 4 across all levels)</p>
-          <p className="text-gray-700">First-author publications at FAccT, CHI, and under review at NeurIPS</p>
-          <p className="text-gray-700">NCWIT Washington Award Winner</p>
-          <p className="text-gray-700">USACO Silver, ICPC NY Regional Qualifier, AIME Qualifier</p>
+      <div className="mb-8 sm:mb-12">
+        <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-4 sm:mb-6">Recognition</h3>
+        <div className="space-y-2 sm:space-y-3 font-light">
+          <p className="text-gray-700 text-sm sm:text-base">Princeton Research Day Award ($1,500, top 4 across all levels)</p>
+          <p className="text-gray-700 text-sm sm:text-base">First-author publications at FAccT, CHI, and under review at NeurIPS</p>
+          <p className="text-gray-700 text-sm sm:text-base">NCWIT Washington Award Winner</p>
+          <p className="text-gray-700 text-sm sm:text-base">USACO Silver, ICPC NY Regional Qualifier, AIME Qualifier</p>
         </div>
       </div>
 
       {/* Leadership */}
-      <div className="mb-12">
-        <h3 className="text-xl font-medium text-gray-900 mb-6">Leadership</h3>
-        <div className="space-y-4 font-light">
+      <div className="mb-8 sm:mb-12">
+        <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-4 sm:mb-6">Leadership</h3>
+        <div className="space-y-3 sm:space-y-4 font-light">
           <div>
             <p className="text-gray-900 font-medium">ChatGPT Education Lab</p>
             <p className="text-gray-700">I work directly with the product team to test early features and think about how AI is shaping education</p>
@@ -177,7 +177,7 @@ function AboutSection() {
         </div>
       </div>
 
-      <div className="text-gray-600 italic font-light text-center pt-8 border-t border-gray-200">
+      <div className="text-gray-600 italic font-light text-center pt-6 sm:pt-8 border-t border-gray-200 text-sm sm:text-base">
         Outside of work, I love playing basketball. NBA playoff season is my favorite time of year.
       </div>
     </div>
@@ -222,24 +222,24 @@ function ResearchSection() {
 
   return (
     <div>
-      <h2 className="text-3xl font-light text-gray-900 mb-12 tracking-tight">Research</h2>
+      <h2 className="text-2xl sm:text-3xl font-light text-gray-900 mb-8 sm:mb-12 tracking-tight">Research</h2>
       
-      <p className="text-lg text-gray-700 leading-relaxed font-light mb-16">
+      <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light mb-12 sm:mb-16">
         I work on AI research at the intersection of law, policy, and human-computer interaction,
         building practical frameworks that balance different stakeholder perspectives.
       </p>
 
-      <h3 className="text-xl font-medium text-gray-900 mb-8">Current Projects</h3>
+      <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-6 sm:mb-8">Current Projects</h3>
      
       <div className="space-y-12">
         {projects.map((project, index) => (
-          <div key={index} className="pb-8 border-b border-gray-200 last:border-b-0">
-            <div className="flex items-start justify-between mb-3">
-              <h4 className="text-xl font-medium text-gray-900">{project.title}</h4>
+          <div key={index} className="pb-6 sm:pb-8 border-b border-gray-200 last:border-b-0">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+              <h4 className="text-lg sm:text-xl font-medium text-gray-900 mb-2 sm:mb-0">{project.title}</h4>
               {project.link && (
                 <a 
                   href={project.link} 
-                  className="text-gray-600 hover:text-black transition-colors ml-4"
+                  className="text-gray-600 hover:text-black transition-colors self-start sm:ml-4"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -247,13 +247,13 @@ function ResearchSection() {
                 </a>
               )}
             </div>
-            <p className="text-sm text-gray-600 mb-4 font-light">
+            <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 font-light">
               {project.lab} • {project.collaborators}
             </p>
-            <p className="text-gray-700 mb-4 leading-relaxed font-light">
+            <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 leading-relaxed font-light">
               {project.description}
             </p>
-            <p className="text-sm text-gray-900 font-medium">
+            <p className="text-xs sm:text-sm text-gray-900 font-medium">
               {project.publication}
             </p>
           </div>
@@ -296,20 +296,20 @@ function ProductSection() {
 
   return (
     <div>
-      <h2 className="text-3xl font-light text-gray-900 mb-12 tracking-tight">Product & Building</h2>
+      <h2 className="text-2xl sm:text-3xl font-light text-gray-900 mb-8 sm:mb-12 tracking-tight">Product & Building</h2>
      
-      <div className="space-y-12">
+      <div className="space-y-8 sm:space-y-12">
         {projects.map((project, index) => (
-          <div key={index} className="pb-8 border-b border-gray-200 last:border-b-0">
-            <div className="mb-6">
-              <h3 className="text-xl font-medium text-gray-900 mb-2">{project.title}</h3>
+          <div key={index} className="pb-6 sm:pb-8 border-b border-gray-200 last:border-b-0">
+            <div className="mb-4 sm:mb-6">
+              <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-2">{project.title}</h3>
               <div className="text-gray-700 font-light">
-                <p className="font-medium">{project.company}</p>
-                <p className="text-sm">{project.position} • {project.duration}</p>
-                <p className="text-sm text-gray-600">{project.location}</p>
+                <p className="font-medium text-sm sm:text-base">{project.company}</p>
+                <p className="text-xs sm:text-sm">{project.position} • {project.duration}</p>
+                <p className="text-xs sm:text-sm text-gray-600">{project.location}</p>
               </div>
             </div>
-            <p className="text-gray-700 leading-relaxed font-light">
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
               {project.description}
             </p>
           </div>
