@@ -115,7 +115,7 @@ function AboutSection() {
      
       <div className="mb-16">
         <p className="text-lg text-gray-700 leading-relaxed font-light">
-          I'm a senior at Princeton University studying Computer Science, graduating in May 2026. My research has explored AI across multiple domains - from fair training frameworks in NLP to human-computer interaction tools - with a consistent focus on systems that enhance human capabilities. I'm increasingly interested in model behavior, particularly how AI can support learning and critical thinking rather than simply optimizing for human preference alignment. 
+          I&apos;m a senior at Princeton University studying Computer Science, graduating in May 2026. My research has explored AI across multiple domains - from fair training frameworks in NLP to human-computer interaction tools - with a consistent focus on systems that enhance human capabilities. I&apos;m increasingly interested in model behavior, particularly how AI can support learning and critical thinking rather than simply optimizing for human preference alignment. 
           <br />
           <br />
           I am particularly passionate about bridging AI research insights with practical product applications.
