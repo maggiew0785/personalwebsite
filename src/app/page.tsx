@@ -293,7 +293,7 @@ function ProductSection() {
       position: "Winner",
       duration: "August 2025",
       location: "San Francisco, CA",
-      description: "Won OpenAI x Education Hackathon with an AI platform that teaches history through multiple human perspectives. Students explore events through the eyes of different individuals who lived through those moments. Built using Sora, Runway API, OpenAI API, and voice models to create immersive, multimodal storytelling experiences.",
+      description: "Won OpenAI x Education Hackathon with an AI platform that teaches history through multiple human perspectives. Students explore events through the eyes of different individuals who lived through those moments (e.g., 'A farmer along the Nile River in 1000 BCE'). Built chat interface using React frontend and Flask backend that generates immersive historical videos with Sora API, with image fallbacks for seamless storytelling experiences.",
       type: "Hackathon Winner",
       link: "https://github.com/maggiew0785/HistoryByPeople"
     },
@@ -303,7 +303,7 @@ function ProductSection() {
       position: "Ideator, Designer & Frontend Developer",
       duration: "Fall 2024",
       location: "HackMIT",
-      description: "Created TRU (To Remember U) with a 4-person team, an AI platform that transforms heartfelt family conversations into biographical narratives. Originated the concept of preserving grandparents' stories and wisdom before they're lost to time. Designed user experience in Figma and built frontend using React, JavaScript, and Material UI. Integrated OpenAI Whisper and GPT APIs to capture and craft these precious memories into lasting legacies.",
+      description: "Created TRU (To Remember U) with a 4-person team, an AI platform that transforms heartfelt family conversations into biographical narratives. Originated the concept of preserving grandparents' stories and wisdom before they're lost to time. Designed user experience in Figma and built frontend using React, JavaScript, and Material UI. Integrated OpenAI Whisper and GPT APIs.",
       type: "Hackathon Project",
       link: "https://github.com/maggiew0785/HackHarvard-Tru"
     }
