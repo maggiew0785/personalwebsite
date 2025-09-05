@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ExternalLink, Github, Book, Award, Users, Code, Briefcase } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Home() {
@@ -115,7 +115,7 @@ function AboutSection() {
      
       <div className="mb-16">
         <p className="text-lg text-gray-700 leading-relaxed font-light">
-          I'm a senior at Princeton University studying Computer Science, graduating in May 2026. My research has spanned computer vision, policy, and AI safety, but I'm currently interested in model behavior, particularly when human preference isn't the ultimate goal and how AI can better support learning and critical thinking.
+          I&apos;m a senior at Princeton University studying Computer Science, graduating in May 2026. My research has spanned computer vision, policy, and AI safety, but I&apos;m currently interested in model behavior, particularly when human preference isn&apos;t the ultimate goal and how AI can better support learning and critical thinking.
           <br />
           <br />
           I am particularly passionate about bridging AI research insights with practical product applications.
