@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('about');
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   return (
     <main className="min-h-screen bg-white font-serif">
@@ -100,9 +101,36 @@ export default function Home() {
         {/* Tab Content */}
         <div className="min-h-96">
           {activeTab === 'about' && <AboutSection />}
-          {activeTab === 'research' && <ResearchSection />}
-          {activeTab === 'product' && <ProductSection />}
+          {activeTab === 'research' && <ResearchSection lightboxImage={lightboxImage} setLightboxImage={setLightboxImage} />}
+          {activeTab === 'product' && <ProductSection lightboxImage={lightboxImage} setLightboxImage={setLightboxImage} />}
         </div>
+
+        {/* Lightbox Modal */}
+        {lightboxImage && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+            onClick={() => setLightboxImage(null)}
+          >
+            <div className="relative max-w-[66vw] max-h-[66vh] p-4">
+              <button
+                onClick={() => setLightboxImage(null)}
+                className="absolute -top-2 -right-2 bg-white rounded-full p-2 text-gray-600 hover:text-black transition-colors shadow-lg z-10"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <Image
+                src={lightboxImage}
+                alt="Preview"
+                width={800}
+                height={600}
+                className="max-w-full max-h-full object-contain rounded-lg"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );
@@ -188,7 +216,7 @@ function AboutSection() {
   );
 }
 
-function ResearchSection() {
+function ResearchSection({ lightboxImage, setLightboxImage }: { lightboxImage: string | null, setLightboxImage: (image: string | null) => void }) {
   const projects = [
     {
       title: "Fair Learning Framework",
@@ -212,7 +240,8 @@ function ResearchSection() {
       collaborators: "Professor Andrés Monroy-Hernández, Yuhan Liu, and Varun Rao",
       description: "Built a tool that synthesizes insights from Reddit forums and online community discussions to help policy researchers write more inclusive policy briefs. 73% of researchers found it easy to use and collected 2x more themes compared to traditional methods.",
       publication: "First-author paper at CHI 2025",
-      link: "https://dl.acm.org/doi/10.1145/3706599.3720266"
+      link: "https://dl.acm.org/doi/10.1145/3706599.3720266",
+      image: "/Screens-1.png"
     },
     {
       title: "3D Vision Benchmarking",
@@ -238,28 +267,46 @@ function ResearchSection() {
       <div className="space-y-12">
         {projects.map((project, index) => (
           <div key={index} className="pb-6 sm:pb-8 border-b border-gray-200 last:border-b-0">
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-              <h4 className="text-lg sm:text-xl font-medium text-gray-900 mb-2 sm:mb-0">{project.title}</h4>
-              {project.link && (
-                <a 
-                  href={project.link} 
-                  className="text-gray-600 hover:text-black transition-colors self-start sm:ml-4"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
+            <div className="flex flex-col lg:flex-row lg:gap-8">
+              <div className="flex-1">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+                  <h4 className="text-lg sm:text-xl font-medium text-gray-900 mb-2 sm:mb-0">{project.title}</h4>
+                  {project.link && (
+                    <a 
+                      href={project.link} 
+                      className="text-gray-600 hover:text-black transition-colors self-start sm:ml-4"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+                <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 font-light">
+                  {project.lab} • {project.collaborators}
+                </p>
+                <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 leading-relaxed font-light">
+                  {project.description}
+                </p>
+                <p className="text-xs sm:text-sm text-gray-900 font-medium">
+                  {project.publication}
+                </p>
+              </div>
+              {project.image && (
+                <div className="flex-shrink-0 mt-4 lg:mt-0">
+                  <div className="cursor-pointer hover:opacity-80 transition-opacity">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      width={200}
+                      height={150}
+                      className="rounded-lg object-cover border border-gray-200 hover:shadow-lg transition-shadow"
+                      onClick={() => setLightboxImage(project.image)}
+                    />
+                  </div>
+                </div>
               )}
             </div>
-            <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 font-light">
-              {project.lab} • {project.collaborators}
-            </p>
-            <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 leading-relaxed font-light">
-              {project.description}
-            </p>
-            <p className="text-xs sm:text-sm text-gray-900 font-medium">
-              {project.publication}
-            </p>
           </div>
         ))}
       </div>
@@ -267,7 +314,7 @@ function ResearchSection() {
   );
 }
 
-function ProductSection() {
+function ProductSection({ lightboxImage, setLightboxImage }: { lightboxImage: string | null, setLightboxImage: (image: string | null) => void }) {
   const projects = [
     {
       title: "MSR Flow",
@@ -295,7 +342,8 @@ function ProductSection() {
       location: "San Francisco, CA",
       description: "Won OpenAI x Education Hackathon with an AI platform that teaches history through multiple human perspectives. Students explore events through the eyes of different individuals who lived through those moments (e.g., 'A farmer along the Nile River in 1000 BCE'). Built chat interface using React frontend and Flask backend that generates immersive historical videos with Sora API, with image fallbacks for seamless storytelling experiences.",
       type: "Hackathon Winner",
-      link: "https://github.com/maggiew0785/HistoryByPeople"
+      link: "https://github.com/maggiew0785/HistoryByPeople",
+      images: ["/HbP1.png", "/HbP2.png"]
     },
     {
       title: "TRU - Personal Biography Generator",
@@ -305,7 +353,9 @@ function ProductSection() {
       location: "HackMIT",
       description: "Created TRU (To Remember U) with a 4-person team, an AI platform that transforms heartfelt family conversations into biographical narratives. Originated the concept of preserving grandparents' stories and wisdom before they're lost to time. Designed user experience in Figma and built frontend using React, JavaScript, and Material UI. Integrated OpenAI Whisper and GPT APIs.",
       type: "Hackathon Project",
-      link: "https://github.com/maggiew0785/HackHarvard-Tru"
+      link: "https://github.com/maggiew0785/HackHarvard-Tru",
+      figmaLink: "https://www.figma.com/proto/mAqb6m2lX1HyGx51rCGcBY/TRU?node-id=2212-3793&p=f&m=draw&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&t=9ObUCZCtm3vjzWGM-1",
+      image: "/TRU.png"
     }
   ];
 
@@ -316,29 +366,96 @@ function ProductSection() {
       <div className="space-y-8 sm:space-y-12">
         {projects.map((project, index) => (
           <div key={index} className="pb-6 sm:pb-8 border-b border-gray-200 last:border-b-0">
-            <div className="mb-4 sm:mb-6">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2">
-                <h3 className="text-lg sm:text-xl font-medium text-gray-900">{project.title}</h3>
-                {project.link && (
-                  <a 
-                    href={project.link} 
-                    className="text-gray-600 hover:text-black transition-colors self-start sm:ml-4"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                )}
+            <div className="flex flex-col lg:flex-row lg:gap-8">
+              <div className="flex-1">
+                <div className="mb-4 sm:mb-6">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2">
+                    <h3 className="text-lg sm:text-xl font-medium text-gray-900">{project.title}</h3>
+                    <div className="flex gap-2 self-start sm:ml-4">
+                      {project.link && (
+                        <a 
+                          href={project.link} 
+                          className="text-gray-600 hover:text-black transition-colors"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="GitHub Repository"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
+                      {project.figmaLink && (
+                        <a 
+                          href={project.figmaLink} 
+                          className="text-gray-600 hover:text-black transition-colors"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Figma Prototype"
+                        >
+                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.015-4.49-4.491S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068V16.49H8.148z"/>
+                          </svg>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                  <div className="text-gray-700 font-light">
+                    <p className="font-medium text-sm sm:text-base">{project.company}</p>
+                    <p className="text-xs sm:text-sm">{project.position} • {project.duration}</p>
+                    <p className="text-xs sm:text-sm text-gray-600">{project.location}</p>
+                  </div>
+                </div>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
+                  {project.description}
+                </p>
               </div>
-              <div className="text-gray-700 font-light">
-                <p className="font-medium text-sm sm:text-base">{project.company}</p>
-                <p className="text-xs sm:text-sm">{project.position} • {project.duration}</p>
-                <p className="text-xs sm:text-sm text-gray-600">{project.location}</p>
-              </div>
+              {(project.image || project.images) && (
+                <div className="flex-shrink-0 mt-4 lg:mt-0">
+                  {project.images ? (
+                    // Multiple images stacked vertically
+                    <div className="space-y-3">
+                      {project.images.map((imageSrc, imgIndex) => (
+                        <div key={imgIndex} className="cursor-pointer hover:opacity-80 transition-opacity">
+                          <Image
+                            src={imageSrc}
+                            alt={`${project.title} preview ${imgIndex + 1}`}
+                            width={200}
+                            height={120}
+                            className="rounded-lg object-cover border border-gray-200 hover:shadow-lg transition-shadow"
+                            onClick={() => setLightboxImage(imageSrc)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : project.figmaLink ? (
+                    // Single image with Figma link
+                    <a 
+                      href={project.figmaLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block hover:opacity-80 transition-opacity"
+                      title="View Figma Prototype"
+                    >
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} preview`}
+                        width={200}
+                        height={150}
+                        className="rounded-lg object-cover border border-gray-200 hover:shadow-lg transition-shadow cursor-pointer"
+                      />
+                    </a>
+                  ) : (
+                    // Single image without link
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      width={200}
+                      height={150}
+                      className="rounded-lg object-cover border border-gray-200"
+                    />
+                  )}
+                </div>
+              )}
             </div>
-            <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
-              {project.description}
-            </p>
           </div>
         ))}
       </div>
