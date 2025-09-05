@@ -302,7 +302,7 @@ function ProductSection() {
       position: "Ideator, Designer & Frontend Developer",
       duration: "Fall 2024",
       location: "HackMIT",
-      description: "Conceived and developed TRU (To Remember U) with a 4-person team, an AI-powered platform that transforms conversational interviews into beautifully crafted biographical narratives. Led initial ideation and designed user experience for capturing family stories through guided conversations and generating polished biographies for future generations. Built frontend interface using React and TypeScript to create an intuitive storytelling experience that preserves family memories and oral histories before they're lost to time.",
+      description: "Created TRU with a 4-person team, an AI platform that transforms heartfelt family conversations into biographical narratives. Originated the concept of preserving grandparents' stories and wisdom before they're lost to time. Designed user experience in Figma and built frontend using React, JavaScript, and Material UI. Integrated OpenAI Whisper and GPT APIs to capture and craft these precious memories into lasting legacies.",
       type: "Hackathon Project"
     }
   ];
