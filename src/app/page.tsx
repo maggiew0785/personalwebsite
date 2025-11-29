@@ -1,12 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('about');
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+
+  // Load ElevenLabs script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed@beta';
+    script.async = true;
+    script.type = 'text/javascript';
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://unpkg.com/@elevenlabs/convai-widget-embed@beta"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
 
   return (
     <main className="min-h-screen bg-white font-serif">
@@ -131,6 +148,15 @@ export default function Home() {
             </div>
           </div>
         )}
+      </div>
+
+      {/* ElevenLabs Conversational AI Widget */}
+      <div className="fixed bottom-4 right-4 z-40">
+        <div 
+          dangerouslySetInnerHTML={{
+            __html: '<elevenlabs-convai agent-id="agent_5801kb4ed6qqew4vhfqvrnv9pqha"></elevenlabs-convai>'
+          }}
+        />
       </div>
     </main>
   );
