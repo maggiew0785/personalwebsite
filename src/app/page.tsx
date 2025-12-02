@@ -33,7 +33,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-8 mb-6 sm:mb-8">
             <div className="flex-shrink-0 mb-4 sm:mb-0 flex justify-center sm:justify-start">
               <Image
-                src="/MaggieWang_Headshot.jpg"
+                src="/MaggieWang_Headshot.png"
                 alt="Maggie Wang"
                 width={100}
                 height={100}
