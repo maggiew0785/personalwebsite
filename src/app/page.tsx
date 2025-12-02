@@ -191,7 +191,7 @@ function AboutSection() {
         <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-4 sm:mb-6">Recognition</h3>
         <div className="space-y-2 sm:space-y-3 font-light">
           <p className="text-gray-700 text-sm sm:text-base">Princeton Research Day Award ($1,500, top 4 across all levels)</p>
-          <p className="text-gray-700 text-sm sm:text-base">First-author publications at FAccT, CHI, and accepted to NeuRIPS Creative AI 2025. See you in San Diego!</p>
+          <p className="text-gray-700 text-sm sm:text-base">First-author publications at FAccT, CHI, and accepted to NeurIPS Creative AI 2025. See you in San Diego!</p>
           <p className="text-gray-700 text-sm sm:text-base">NCWIT Washington Award Winner, USACO Silver, ICPC NY Regional Qualifier, AIME Qualifier</p>
         </div>
       </div>
